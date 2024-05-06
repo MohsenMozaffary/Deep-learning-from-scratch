@@ -26,7 +26,7 @@ class SelfAttention(nn.Module):
         # energy: batch x n_heads x seq_len x seq_len
         energy = torch.einsum("bqnd, bknd -> bnqk", [query, key])
 
-        attention = torch.softmax(energy / torch.sqrt(self.head_dim), dim = 3)
+        attention = torch.softmax(energy / torch.sqrt(torch.tensor(float(self.head_dim))), dim = 3)
         # selfAttention: batch x seq_len x n_heads, feature
         selfAttention = torch.einsum("bnqk, bvnd -> bqnd", [attention, value])
         # selfAttention: batch x seq_len x feature
