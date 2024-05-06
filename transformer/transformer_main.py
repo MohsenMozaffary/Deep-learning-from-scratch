@@ -9,7 +9,7 @@ class Transformer(nn.Module):
         self.norm2 = nn.LayerNorm(feature_size)
         self.fc1 = nn.Linear(feature_size, 4*feature_size)
         self.fc2 = nn.Linear(4*feature_size, feature_size)
-        self.activation = nn.Relu()
+        self.activation = nn.ReLU()
         nn.dropout = nn.Dropout(0.25)
 
     def forward(self, query, key, value):
