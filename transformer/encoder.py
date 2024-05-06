@@ -3,10 +3,9 @@ import torch.nn as nn
 import torch
 
 class Encoder(nn.Module):
-    def __init__(self, seq_len, feature_size, n_heads):
+    def __init__(self, seq_len, feature_size):
         super(Encoder, self).__init__()
         self.features_size = feature_size
-        self.n_layers = n_layers
         self.position_embedding = nn.Embedding(seq_len, seq_len)
 
         self.transformer = Transformer(feature_size, feature_size)
