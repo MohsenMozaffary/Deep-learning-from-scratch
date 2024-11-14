@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 
 class conv_block(nn.Module):
-    def __init__(self, in_dim, projection_dim, kernel_size = 3, stride = 1):
+    def __init__(self, in_dim, projection_dim, kernel_size = 3, stride = 1, padding = 1):
         super().__init__()
 
         self.conv1 = nn.Conv2d(in_dim, projection_dim, kernel_size = kernel_size, stride = stride )
